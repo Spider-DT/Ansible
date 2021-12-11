@@ -1,7 +1,7 @@
 
 # 用于批量安装 PHP
 - hosts: webserver
-  remote_user: Huawei
+  remote_user: Huawei   # 注意云主机此处不能写 root，会造成无法访问
   gather_facts: True
 
   roles:
