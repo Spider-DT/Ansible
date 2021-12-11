@@ -1,0 +1,10 @@
+
+# 定义nginx安装的参数信息
+NGINX_VER: 1.15.0
+DOWNLOAD_URL: https://repo.huaweicloud.com/nginx/nginx-{{ NGINX_VER }}.tar.gz
+NGINX_USER: Huawei
+NGINX_PORT: 80
+SOURCE_DIR: /software
+NGINX_DIR: /usr/local/nginx
+DATA_DIR: /data/nginx   # nginx 不和mysql 数据库交互
+

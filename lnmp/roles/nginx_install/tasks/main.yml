@@ -1,0 +1,5 @@
+
+#引用prepare、copy、install模块
+#- include: prepare.yml   # 理解为什么这里注释掉？
+- include: copy.yml
+- include: install.yml

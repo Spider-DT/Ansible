@@ -1,0 +1,8 @@
+
+# 用于批量安装 PHP
+- hosts: webserver
+  remote_user: Huawei
+  gather_facts: True
+
+  roles:
+    - php_install

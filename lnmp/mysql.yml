@@ -1,0 +1,8 @@
+# 用于批量安装 Mysql
+---
+- hosts: dbserver
+  remote_user: Huawei   # 此处不能使用 root ，否则将造成报错后，无法再次登录
+  gather_facts: True
+
+  roles:
+    - mysql_install

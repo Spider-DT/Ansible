@@ -1,0 +1,8 @@
+# 用于批量安装 Nginx
+- hosts: webserver
+  remote_user: Huawei
+  gather_facts: True
+
+  roles:
+    - nginx_install
+

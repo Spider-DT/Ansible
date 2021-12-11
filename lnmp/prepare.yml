@@ -1,0 +1,61 @@
+- name: 关闭firewalld   # 云主机的防火墙一般默认都是关闭的
+  service: name=firewalld state=stopped enabled=no
+
+- name: 临时关闭 selinux   # 云主机一般默认关闭
+  shell: "setenforce 0"
+  failed_when: false
+
+- name: 永久关闭 selinux
+  lineinfile:
+    dest: /etc/selinux/config
+    regexp: "^SELINUX="
+    line: "SELINUX=disabled"
+
+- name: 添加EPEL仓库    # 为“红帽系”的操作系统提供额外的软件包
+  yum: name=epel-release state=latest
+
+- name: 安装常用软件包
+  yum:
+    name:
+      - vim
+      - lrzsz
+      - net-tools
+      - wget
+      - curl
+      - bash-completion
+      - rsync
+      - gcc
+      - unzip
+      - git
+      - perl-Data-Dumper
+      - libaio-devel
+      - autoconf
+      - cmake
+      - openssl
+      - openssl-devel
+      - pcre
+      - pcre-devel
+      - zlib
+      - zlib-devel
+      - gd-devel
+      - libxml2-devel
+      - bzip2-devel
+      - gnutls-devel
+      - ncurses-devel
+      - bison
+      - bison-devel
+      - openldap
+      - openldap-devel
+      - libcurl-devel
+      - libevent
+      - libevent-devel
+      - expat-devel
+      - numactl
+      - tree
+    state: latest
+
+- name: 更新系统
+  shell: "yum update -y"
+  args:
+    warn: False
+

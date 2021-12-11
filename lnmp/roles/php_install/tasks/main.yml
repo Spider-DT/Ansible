@@ -1,0 +1,4 @@
+# 引用 prepare、copy、install 模块
+- include: prepare.yml   # 都是在 lnmp 脚本目录下拉取
+- include: copy.yml
+- include: install.yml
